@@ -30,15 +30,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Create Badge
-              uses: Tomiha/gist-write-action@v2
+              uses: schneegans/dynamic-badges-action@28b0fa8bdeb46170ac397105ece0c1fe58f68910 # v1.9.0
               with:
-                token: ${{secrets.GIST_SCOPE_TOKEN}}
-                gist_id: ${{inputs.gist-id}}
-                file_name: ${{inputs.file-name}}.json
-                content: '{ "schemaVersion": 1, 
-                            "label": "${{inputs.label}}", 
-                            "message": "${{inputs.message}}", 
-                            "color": "${{inputs.color}}",
-                            "logoColor": "${{inputs.logo-color}}",
-                            "namedLogo": "${{inputs.logo}}" 
-                            }'
+                auth: ${{ secrets.GIST_SCOPE_TOKEN }}
+                gistID: ${{ inputs.gist-id }}
+                filename: ${{ inputs.file-name }}.json
+                label: ${{ inputs.label }}
+                message: ${{ inputs.message }}
+                color: ${{ inputs.color }}
+                namedLogo: ${{ inputs.logo }}
+                logoColor: ${{ inputs.logo-color }}
